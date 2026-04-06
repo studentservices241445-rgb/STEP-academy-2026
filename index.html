@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية ستيب 2026 | دورات اختبار STEP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loadingScreen">
+    <div class="loader-content">
+        <div class="loader-logo">🎓</div>
+        <div class="loader-text">أكاديمية ستيب 2026</div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+</div>
+
+<!-- Notification Bar -->
+<div class="notification-bar">
+    <div class="notif-scroll">
+        <span>🔥 15 شخص اشترك اليوم</span>
+        <span>⭐ أكثر من 500 طالب حققوا أهدافهم معنا</span>
+        <span>🎯 العرض المحدود ينتهي قريباً!</span>
+        <span>🏆 نسبة نجاح 95% مع دوراتنا المميزة</span>
+        <span>🔥 15 شخص اشترك اليوم</span>
+        <span>⭐ أكثر من 500 طالب حققوا أهدافهم معنا</span>
+        <span>🎯 العرض المحدود ينتهي قريباً!</span>
+        <span>🏆 نسبة نجاح 95% مع دوراتنا المميزة</span>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <span class="logo-icon">🎓</span>
+            <div class="logo-text">
+                <span class="logo-main">أكاديمية ستيب</span>
+                <span class="logo-year">2026</span>
+            </div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="#courses" class="nav-link">الدورات</a>
+            <a href="#compare" class="nav-link">المقارنة</a>
+            <a href="#why-us" class="nav-link">لماذا نحن؟</a>
+            <a href="#testimonials" class="nav-link">آراء الطلاب</a>
+            <a href="#faq" class="nav-link">الأسئلة الشائعة</a>
+        </div>
+        <div class="nav-actions">
+            <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+        <div class="hero-badge">🚀 التحديث الأحدث 2026</div>
+        <h1 class="hero-title">
+            حقق <span class="gold-text">أعلى الدرجات</span><br>
+            في اختبار <span class="glow-text">STEP 2026</span>
+        </h1>
+        <p class="hero-subtitle">دوراتنا المتخصصة صُممت لتوصلك لدرجة <strong>+90</strong> بأقل وقت وأكثر فاعلية</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number" data-count="500">0</span>
+                <span class="stat-plus">+</span>
+                <span class="stat-label">طالب ناجح</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="95">0</span>
+                <span class="stat-plus">%</span>
+                <span class="stat-label">نسبة النجاح</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="90">0</span>
+                <span class="stat-plus">+</span>
+                <span class="stat-label">درجة مضمونة</span>
+            </div>
+        </div>
+        <div class="hero-cta">
+            <a href="#courses" class="btn-primary">
+                <span>اكتشف الدورات</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+            <a href="#compare" class="btn-secondary">قارن بين الدورات</a>
+        </div>
+        <div class="countdown-section">
+            <p class="countdown-title">⏰ العرض ينتهي خلال:</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item"><span id="cdDays">00</span><small>يوم</small></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item"><span id="cdHours">00</span><small>ساعة</small></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item"><span id="cdMins">00</span><small>دقيقة</small></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item"><span id="cdSecs">00</span><small>ثانية</small></div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll-indicator">
+        <div class="scroll-mouse"></div>
+        <span>اسحب للأسفل</span>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+    <div class="stats-container">
+        <div class="stats-item">
+            <span class="stats-icon">👨‍🎓</span>
+            <div>
+                <strong>+500 طالب</strong>
+                <p>التحقوا بدوراتنا</p>
+            </div>
+        </div>
+        <div class="stats-item">
+            <span class="stats-icon">🏆</span>
+            <div>
+                <strong>%95 نسبة نجاح</strong>
+                <p>من طلابنا حققوا هدفهم</p>
+            </div>
+        </div>
+        <div class="stats-item">
+            <span class="stats-icon">⭐</span>
+            <div>
+                <strong>90+ درجة</strong>
+                <p>متوسط درجات طلابنا</p>
+            </div>
+        </div>
+        <div class="stats-item">
+            <span class="stats-icon">📚</span>
+            <div>
+                <strong>3 دورات متخصصة</strong>
+                <p>لكل مستوى واحتياج</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Section -->
+<section class="courses-section" id="courses">
+    <div class="section-header">
+        <span class="section-badge">🎓 دوراتنا المميزة</span>
+        <h2>اختر الدورة <span class="gold-text">المناسبة لك</span></h2>
+        <p>ثلاث دورات متخصصة لكل احتياج، صُممت بعناية لضمان نجاحك في اختبار STEP 2026</p>
+    </div>
+    <div class="courses-grid">
+
+        <!-- Course 1: Premium -->
+        <div class="course-card featured" data-course="premium" data-price="249" data-original="749">
+            <div class="card-badges">
+                <span class="badge-bestseller">⭐ الأكثر مبيعاً</span>
+                <span class="badge-discount">خصم 67%</span>
+            </div>
+            <div class="card-image premium-bg">
+                <div class="card-img-overlay">
+                    <svg class="course-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="35" r="20" fill="rgba(240,192,64,0.3)" stroke="#f0c040" stroke-width="2"/>
+                        <text x="50" y="42" text-anchor="middle" fill="#f0c040" font-size="20">💎</text>
+                        <rect x="20" y="60" width="60" height="5" rx="3" fill="rgba(240,192,64,0.5)"/>
+                        <rect x="25" y="70" width="50" height="5" rx="3" fill="rgba(240,192,64,0.3)"/>
+                        <rect x="30" y="80" width="40" height="5" rx="3" fill="rgba(240,192,64,0.2)"/>
+                    </svg>
+                    <div class="new-badge">🆕 تحديث 2026</div>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">دورة STEP <span>المميزة</span> 💎</h3>
+                <p class="card-subtitle">هدفك درجة عالية +90… فهنا البداية الصح!</p>
+                <div class="price-section">
+                    <div class="price-original">749 ريال</div>
+                    <div class="price-current">249 <span>ريال</span></div>
+                    <div class="price-save">وفّر 500 ريال!</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="check-icon">✅</span> شرح مبسط من الصفر (Grammar + Reading + Listening)</li>
+                    <li><span class="check-icon">✅</span> أحدث النماذج 50 - 51 - 52 ❤️‍🔥</li>
+                    <li><span class="check-icon">✅</span> تدريبات + كويزات + محاكيات للاختبار</li>
+                    <li><span class="check-icon">✅</span> خطة مذاكرة جاهزة تمشي عليها</li>
+                    <li><span class="check-icon">✅</span> محتوى منظم يوفر عليك وقتك</li>
+                    <li class="feature-highlight"><span class="check-icon">🔥</span> جميع التحديثات + النماذج القادمة لـ 90 يوم بدون رسوم!</li>
+                </ul>
+                <button class="btn-add-cart" onclick="addToCart('premium', 'دورة STEP المميزة', 249, 749)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    أضف للسلة
+                </button>
+            </div>
+        </div>
+
+        <!-- Course 2: Intensive -->
+        <div class="course-card intensive" data-course="intensive" data-price="199" data-original="549">
+            <div class="card-badges">
+                <span class="badge-fast">⚡ الأسرع نتيجة</span>
+                <span class="badge-discount">خصم 64%</span>
+            </div>
+            <div class="card-image intensive-bg">
+                <div class="card-img-overlay">
+                    <svg class="course-icon" viewBox="0 0 100 100">
+                        <polygon points="50,10 90,90 10,90" fill="rgba(0,212,255,0.2)" stroke="#00d4ff" stroke-width="2"/>
+                        <text x="50" y="72" text-anchor="middle" fill="#00d4ff" font-size="28">⚡</text>
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(0,212,255,0.3)" stroke-width="1" stroke-dasharray="5,5"/>
+                    </svg>
+                    <div class="new-badge blue-badge">⚡ مكثف</div>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">دورة STEP <span class="blue-span">المكثفة</span> ⚡</h3>
+                <p class="card-subtitle">مثالية إذا وقتك ضيق وتحتاج نتيجة سريعة قبل الاختبار</p>
+                <div class="price-section">
+                    <div class="price-original">549 ريال</div>
+                    <div class="price-current blue-price">199 <span>ريال</span></div>
+                    <div class="price-save blue-save">وفّر 350 ريال!</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="check-icon">✅</span> خطة مكثفة تركز على المتكرر</li>
+                    <li><span class="check-icon">✅</span> التثبيت + حل أكبر عدد من الأسئلة</li>
+                    <li><span class="check-icon">✅</span> مناسبة للمقبلين على الاختبار بفترة قصيرة</li>
+                    <li><span class="check-icon">✅</span> مدة وصول المحتوى: 90 يوم</li>
+                    <li><span class="check-icon">✅</span> أسلوب تدريب سريع وفعّال</li>
+                </ul>
+                <button class="btn-add-cart blue-btn" onclick="addToCart('intensive', 'دورة STEP المكثفة', 199, 549)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    أضف للسلة
+                </button>
+            </div>
+        </div>
+
+        <!-- Course 3: Comprehensive -->
+        <div class="course-card comprehensive" data-course="comprehensive" data-price="149" data-original="399">
+            <div class="card-badges">
+                <span class="badge-complete">📚 الأشمل</span>
+                <span class="badge-discount green-disc">خصم 63%</span>
+            </div>
+            <div class="card-image comprehensive-bg">
+                <div class="card-img-overlay">
+                    <svg class="course-icon" viewBox="0 0 100 100">
+                        <rect x="15" y="20" width="70" height="60" rx="5" fill="rgba(72,199,142,0.2)" stroke="#48c78e" stroke-width="2"/>
+                        <line x1="30" y1="40" x2="70" y2="40" stroke="#48c78e" stroke-width="2"/>
+                        <line x1="30" y1="55" x2="70" y2="55" stroke="rgba(72,199,142,0.7)" stroke-width="2"/>
+                        <line x1="30" y1="65" x2="55" y2="65" stroke="rgba(72,199,142,0.5)" stroke-width="2"/>
+                        <text x="50" y="35" text-anchor="middle" fill="#48c78e" font-size="14">📚</text>
+                    </svg>
+                    <div class="new-badge green-badge">📚 شامل</div>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">دورة STEP <span class="green-span">الشاملة</span> 📚</h3>
+                <p class="card-subtitle">مناسبة تبني أساس قوي وتراجع خطوة بخطوة</p>
+                <div class="price-section">
+                    <div class="price-original">399 ريال</div>
+                    <div class="price-current green-price">149 <span>ريال</span></div>
+                    <div class="price-save green-save">وفّر 250 ريال!</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="check-icon">✅</span> شرح مفصل لكل أقسام الاختبار (Grammar – Reading – Listening – Structure)</li>
+                    <li><span class="check-icon">✅</span> نماذج سابقة متعددة</li>
+                    <li><span class="check-icon">✅</span> خطط مذاكرة مرنة (5 / 10 / 30 يوم)</li>
+                    <li><span class="check-icon">✅</span> تحديثات مدى الحياة 🎁</li>
+                    <li><span class="check-icon">✅</span> أساس متين لكل مستويات اللغة</li>
+                </ul>
+                <button class="btn-add-cart green-btn" onclick="addToCart('comprehensive', 'دورة STEP الشاملة', 149, 399)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    أضف للسلة
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="compare-section" id="compare">
+    <div class="section-header">
+        <span class="section-badge">📊 مقارنة الدورات</span>
+        <h2>اختر <span class="gold-text">الأنسب لك</span></h2>
+    </div>
+    <div class="compare-wrapper">
+        <div class="compare-table-container">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="feature-col">الميزة</th>
+                        <th class="premium-col">
+                            <div class="th-content">
+                                <span>💎 المميزة</span>
+                                <span class="th-price">249 ريال</span>
+                            </div>
+                        </th>
+                        <th class="intensive-col">
+                            <div class="th-content">
+                                <span>⚡ المكثفة</span>
+                                <span class="th-price">199 ريال</span>
+                            </div>
+                        </th>
+                        <th class="comprehensive-col">
+                            <div class="th-content">
+                                <span>📚 الشاملة</span>
+                                <span class="th-price">149 ريال</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>شرح Grammar</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                    </tr>
+                    <tr>
+                        <td>شرح Reading</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                    </tr>
+                    <tr>
+                        <td>شرح Listening</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                    </tr>
+                    <tr>
+                        <td>شرح Structure</td>
+                        <td class="check">✅</td>
+                        <td class="minus">—</td>
+                        <td class="check">✅</td>
+                    </tr>
+                    <tr>
+                        <td>أحدث النماذج (50-51-52)</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                        <td class="minus">—</td>
+                    </tr>
+                    <tr>
+                        <td>كويزات ومحاكيات</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                        <td class="minus">—</td>
+                    </tr>
+                    <tr>
+                        <td>خطة مذاكرة جاهزة</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                        <td class="check">✅</td>
+                    </tr>
+                    <tr>
+                        <td>خطط مرنة (5/10/30 يوم)</td>
+                        <td class="minus">—</td>
+                        <td class="minus">—</td>
+                        <td class="check">✅</td>
+                    </tr>
+                    <tr>
+                        <td>تحديثات</td>
+                        <td class="feature-text">90 يوم مجاناً 🔥</td>
+                        <td class="feature-text">90 يوم</td>
+                        <td class="feature-text">مدى الحياة 🎁</td>
+                    </tr>
+                    <tr>
+                        <td>مدة الوصول</td>
+                        <td class="feature-text">90 يوم</td>
+                        <td class="feature-text">90 يوم</td>
+                        <td class="feature-text">مدى الحياة</td>
+                    </tr>
+                    <tr class="action-row">
+                        <td></td>
+                        <td><button class="table-btn gold-table-btn" onclick="addToCart('premium', 'دورة STEP المميزة', 249, 749)">اشترِ الآن</button></td>
+                        <td><button class="table-btn blue-table-btn" onclick="addToCart('intensive', 'دورة STEP المكثفة', 199, 549)">اشترِ الآن</button></td>
+                        <td><button class="table-btn green-table-btn" onclick="addToCart('comprehensive', 'دورة STEP الشاملة', 149, 399)">اشترِ الآن</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us Section -->
+<section class="why-us" id="why-us">
+    <div class="section-header">
+        <span class="section-badge">🏅 مميزاتنا</span>
+        <h2>لماذا <span class="gold-text">أكاديمية ستيب 2026؟</span></h2>
+    </div>
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>تركيز دقيق</h3>
+            <p>دوراتنا مصممة خصيصاً لاختبار STEP مع التركيز على الأسئلة المتكررة والنماذج الحديثة</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">⚡</div>
+            <h3>نتائج سريعة</h3>
+            <p>أسلوب تدريس مكثف يوصلك لهدفك بأقل وقت ممكن مع ضمان الاستيعاب الكامل</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🔄</div>
+            <h3>تحديثات مستمرة</h3>
+            <p>محتوانا يُحدَّث باستمرار مع كل نموذج جديد لضمان حصولك على أحدث المعلومات</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">💰</div>
+            <h3>أسعار منافسة</h3>
+            <p>خصومات حصرية تصل إلى 67% مقارنة بالسعر الأصلي مع محتوى عالي الجودة</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">📱</div>
+            <h3>وصول سهل</h3>
+            <p>ادرس في أي وقت ومن أي مكان على جميع أجهزتك بدون قيود</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🤝</div>
+            <h3>دعم مستمر</h3>
+            <p>فريق الدعم متاح لمساعدتك والإجابة على جميع استفساراتك</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+    <div class="section-header">
+        <span class="section-badge">❤️ آراء طلابنا</span>
+        <h2>ماذا يقول <span class="gold-text">طلابنا؟</span></h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"حصلت على 92 درجة في اختبار STEP بعد ما درست الدورة المميزة! المحتوى منظم ومبسط بشكل رائع، ما توقعت يكون بهذا المستوى."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">س</div>
+                <div>
+                    <strong>سارة العمري</strong>
+                    <span>درجة: 92 | دورة المميزة 💎</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"كان عندي أسبوعين بس قبل الاختبار، أخذت الدورة المكثفة وحصلت على 85! خطة المذاكرة ساعدتني أستغل وقتي بشكل مذهل."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">م</div>
+                <div>
+                    <strong>محمد الغامدي</strong>
+                    <span>درجة: 85 | دورة المكثفة ⚡</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"الدورة الشاملة غيّرت نظرتي للغة الإنجليزية كلياً، الشرح المفصل ساعدني أفهم كل قسم من أساسه، وصلت 88 درجة!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">ر</div>
+                <div>
+                    <strong>ريم الشمري</strong>
+                    <span>درجة: 88 | دورة الشاملة 📚</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"اشتركت بالدورة المميزة وتجربتي كانت استثنائية، المحاكيات والكويزات ساعدتني أتعود على ضغط الاختبار الحقيقي. 94 درجة! 🎉"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">ع</div>
+                <div>
+                    <strong>عبدالله القحطاني</strong>
+                    <span>درجة: 94 | دورة المميزة 💎</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"أفضل استثمار في حياتي! الدورة الشاملة أعطتني أساس قوي بخطوات واضحة، وتحديثات مدى الحياة ميزة لا تقدر بثمن."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">ن</div>
+                <div>
+                    <strong>نورا الدوسري</strong>
+                    <span>درجة: 87 | دورة الشاملة 📚</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section" id="faq">
+    <div class="section-header">
+        <span class="section-badge">❓ أسئلة شائعة</span>
+        <h2>أسئلة <span class="gold-text">وأجوبة</span></h2>
+    </div>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>متى أستطيع الوصول للمحتوى بعد الاشتراك؟</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>يتم تفعيل اشتراكك خلال 24 ساعة من تأكيد عملية الدفع. ستصلك تفاصيل الدخول عبر واتساب أو الرسائل المباشرة.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>ما الفرق بين الدورات الثلاث؟</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>الدورة المميزة: الأشمل والأكثر تفصيلاً مع أحدث النماذج والمحاكيات. الدورة المكثفة: مثالية لمن لديه وقت محدود قبل الاختبار. الدورة الشاملة: للراغبين في بناء أساس متين خطوة بخطوة مع خطط مذاكرة مرنة.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>هل يمكنني الاشتراك بأكثر من دورة؟</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>نعم! يمكنك إضافة أي عدد من الدورات في السلة والاشتراك بها معاً مع الحصول على فائدة أكبر وإعداد أشمل لاختبار STEP.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>كيف يتم التحويل البنكي؟</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>بعد اختيار الدورة وإدخال بياناتك، ستظهر لك تفاصيل التحويل البنكي لبنك الإنماء. قم بالتحويل وأرفق الإيصال، وسيتم تفعيل اشتراكك خلال 24 ساعة.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>هل هناك ضمان استرداد المال؟</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>نحن واثقون من جودة محتوانا. في حال واجهت أي مشكلة، تواصل معنا عبر تيليجرام وسنعمل على حلها فوراً.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>هل المحتوى مناسب للمبتدئين؟</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>نعم! جميع دوراتنا تبدأ من الصفر وتصعّد تدريجياً. الشرح مبسط ومفصل لضمان استيعاب كل مستويات اللغة.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>🚀 ابدأ رحلتك نحو <span>درجة +90</span> اليوم!</h2>
+        <p>انضم لأكثر من 500 طالب حققوا أهدافهم مع أكاديمية ستيب 2026</p>
+        <div class="cta-buttons">
+            <a href="#courses" class="btn-primary large-btn">اشترك الآن 🎓</a>
+            <a href="https://t.me/Hilm_STEP1" target="_blank" class="btn-telegram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+                تواصل معنا
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <span>🎓</span>
+                <div>
+                    <strong>أكاديمية ستيب 2026</strong>
+                    <small>طريقك للنجاح في اختبار STEP</small>
+                </div>
+            </div>
+            <p>نحن ملتزمون بتقديم أعلى جودة تعليمية لمساعدتك في اجتياز اختبار STEP بأعلى الدرجات.</p>
+        </div>
+        <div class="footer-links">
+            <h4>روابط سريعة</h4>
+            <a href="#courses">الدورات</a>
+            <a href="#compare">مقارنة الدورات</a>
+            <a href="#why-us">لماذا نحن؟</a>
+            <a href="#faq">الأسئلة الشائعة</a>
+        </div>
+        <div class="footer-contact">
+            <h4>تواصل معنا</h4>
+            <a href="https://t.me/Hilm_STEP1" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+                @Hilm_STEP1
+            </a>
+            <p>🏦 بنك الإنماء | مؤسسة كريتيفا جلوبال ات</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 أكاديمية ستيب. جميع الحقوق محفوظة لمؤسسة كريتيفا جلوبال ات</p>
+    </div>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>🛒 سلة التسوق</h3>
+        <button onclick="toggleCart()" class="cart-close">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+            <div class="empty-cart-icon">🛒</div>
+            <p>سلتك فارغة</p>
+            <small>أضف دورة للبدء</small>
+        </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>السعر الأصلي:</span>
+                <span id="originalTotal" class="line-through">0 ريال</span>
+            </div>
+            <div class="summary-row savings">
+                <span>توفيرك:</span>
+                <span id="savingsTotal" class="green-text">0 ريال</span>
+            </div>
+            <div class="summary-row total">
+                <span>المجموع:</span>
+                <span id="cartTotal">0 ريال</span>
+            </div>
+        </div>
+        <button class="btn-checkout" onclick="proceedToCheckout()">
+            إتمام الشراء 🚀
+        </button>
+    </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeCheckout()">✕</button>
+
+        <!-- Stepper -->
+        <div class="stepper">
+            <div class="step active" id="step1Indicator">
+                <div class="step-circle">1</div>
+                <span>بياناتك</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step2Indicator">
+                <div class="step-circle">2</div>
+                <span>التحويل</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step3Indicator">
+                <div class="step-circle">3</div>
+                <span>تأكيد الطلب</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Customer Info -->
+        <div class="modal-step" id="checkoutStep1">
+            <h3>👤 بياناتك الشخصية</h3>
+            <p class="step-subtitle">أدخل بياناتك لإتمام عملية الشراء</p>
+            <div class="form-group">
+                <label>الاسم الكامل *</label>
+                <input type="text" id="custName" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            <div class="form-group">
+                <label>رقم التواصل / واتساب *</label>
+                <input type="tel" id="custPhone" placeholder="05xxxxxxxx" required>
+            </div>
+            <div class="form-group">
+                <label>البريد الإلكتروني *</label>
+                <input type="email" id="custEmail" placeholder="example@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>الدرجة المستهدفة *</label>
+                <select id="custTarget">
+                    <option value="">-- اختر درجتك المستهدفة --</option>
+                    <option value="أقل من 60">أقل من 60</option>
+                    <option value="60-70">60 - 70</option>
+                    <option value="70-80">70 - 80</option>
+                    <option value="80-90">80 - 90</option>
+                    <option value="+90">+90 (الهدف الأعلى 🏆)</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-next" onclick="goToStep2()">التالي ← التحويل البنكي</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Bank Transfer -->
+        <div class="modal-step hidden" id="checkoutStep2">
+            <h3>🏦 بيانات التحويل البنكي</h3>
+            <p class="step-subtitle">حوّل المبلغ وأرفق إيصال التحويل</p>
+            <div class="bank-card">
+                <div class="bank-header">
+                    <span class="bank-logo">🏦</span>
+                    <span>بنك الإنماء</span>
+                </div>
+                <div class="bank-field">
+                    <label>اسم المستفيد</label>
+                    <div class="bank-value">مؤسسة كريتيفا جلوبال ات 🟢</div>
+                </div>
+                <div class="bank-field">
+                    <label>رقم الحساب</label>
+                    <div class="bank-value-copy">
+                        <span id="accountNum">68206067557000</span>
+                        <button onclick="copyText('68206067557000', 'copy-account')" class="copy-btn" id="copy-account">نسخ</button>
+                    </div>
+                </div>
+                <div class="bank-field">
+                    <label>رقم الآيبان</label>
+                    <div class="bank-value-copy">
+                        <span id="ibanNum">SA4905000068206067557000</span>
+                        <button onclick="copyText('SA4905000068206067557000', 'copy-iban')" class="copy-btn" id="copy-iban">نسخ</button>
+                    </div>
+                </div>
+                <div class="bank-field total-field">
+                    <label>المبلغ المطلوب تحويله</label>
+                    <div class="bank-total" id="bankTotalAmount">0 ريال سعودي</div>
+                </div>
+            </div>
+            <div class="transfer-note">
+                <p>⚠️ ملاحظة: تأكد من تطابق المبلغ المحوّل مع المبلغ المطلوب</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-back" onclick="goToStep1()">← العودة</button>
+                <button class="btn-next" onclick="goToStep3()">التالي ← إرفاق الإيصال</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Receipt Upload & Confirm -->
+        <div class="modal-step hidden" id="checkoutStep3">
+            <h3>📎 إرفاق إيصال التحويل</h3>
+            <p class="step-subtitle">أرفق صورة الإيصال لتأكيد طلبك</p>
+
+            <div class="order-summary-box">
+                <h4>📋 ملخص طلبك</h4>
+                <div id="orderSummaryItems"></div>
+                <div class="order-total-row">
+                    <span>الإجمالي:</span>
+                    <span id="orderFinalTotal" class="gold-text"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>صورة إيصال التحويل *</label>
+                <div class="file-upload-area" id="fileUploadArea" onclick="document.getElementById('receiptFile').click()">
+                    <input type="file" id="receiptFile" accept="image/*,.pdf" style="display:none" onchange="handleFileUpload(this)">
+                    <div class="file-upload-icon">📸</div>
+                    <p>انقر لرفع صورة الإيصال</p>
+                    <small>يقبل: JPG, PNG, PDF</small>
+                </div>
+                <div id="filePreview" class="file-preview hidden"></div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-back" onclick="goToStep2()">← العودة</button>
+                <button class="btn-confirm" onclick="confirmOrder()">
+                    ✅ تأكيد الطلب وإرساله عبر تيليجرام
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
